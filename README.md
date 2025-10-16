@@ -5,7 +5,7 @@ End‑to‑end ML example from Digital Marketing Mastery Module → builds a dec
 
 ## Quick start
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/iris-classifier.git
+git clone https://github.com/dkganeshan/iris-classifier.git
 cd iris-classifier
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
