@@ -25,10 +25,12 @@ print("Accuracy:", accuracy)
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 cm = confusion_matrix(y_test, y_pred)
 
-# Generate the confusion matrix and save it in the output folder
+# Generate the confusion matrix and save confusion matrix and the model in the output folder
 import matplotlib.pyplot as plt
 from pathlib import Path
 from datetime import datetime
+import os
+import joblib
 timestamp = datetime.now().strftime("%Y-%m-%d_%H%M") # Create a timestamp for the filename (e.g., 2025-10-20_1530)
 output_dir = Path("C:/Users/dkgan/venv/iris-classifier/outputs") # Define the output folder path
 output_dir.mkdir(parents=True, exist_ok=True)  # Create the output folder if it doesn't exist
@@ -38,5 +40,7 @@ disp.plot(cmap=plt.cm.Blues)
 plt.title("Confusion Matrix")
 plt.savefig(save_path, bbox_inches='tight', dpi=300) # Save the figure
 plt.close()
-
+model_path = os.path.join(output_dir, "model.joblib")
+joblib.dump(model, model_path) # Save the trained model
 print(f"✅ Confusion matrix saved successfully at: {save_path.resolve()}")
+print(f"✅ Model saved successfully at: {model_path}")
